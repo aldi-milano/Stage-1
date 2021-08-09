@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style2.css">
+    <title>Search Page</title>
+</head>
+<body>
+    <a href="./index.html"><button>previous</button></a>
+
+    <div id="input-data">
+        <input type="text" id="searchData" placeholder="type here...">
+        <button type="submit" id="btn">Search</button>
+    </div>
+
+    <div id="gambar">
+        
+    </div>
+
+    <div id="hasil">
+        <h2 id="negara"></h2>
+    </div>
+
+    <div id="countryList">
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    <script>
+
+        
+
+        let printCountry = document.getElementById('negara')
+        let getNegara = document.getElementById('searchData')
+        let printHasil = document.getElementById('hasil')
+        let listCountry = document.getElementById('countryList')
+        let image = document.getElementById('gambar')
+
+        let search = document.getElementById("btn").addEventListener("click", () =>
+        searchData(document.getElementById("searchData").value)        
+        );
+        
+
+        const searchCountry = () => {
+            let api2 = 'https://covid19.mathdro.id/api/countries';
+            const option2 = {
+                method : 'GET'
+            }
+
+            fetch(api2, option2)
+            .then(response => response.json())
+            .then(response =>{
+
+                for(let data in response) {
+                    for(let item in response[data]) {
+                        // console.log(response[data][item]);
+                        listCountry.innerHTML += `
+                        <div id="listNegara">
+                            <p>${response[data][item].name}</p>
+                        </div>
+                        `
+                    }
+                }
+
+
+            })
+            .catch(error => console.log(error, 'ERROR'))
+        }
+
+        searchCountry()
+
+
+
+               
+        const searchData = async (search) => {
+            let response = await fetch (`https://covid19.mathdro.id/api/countries/${search}`, {
+                method: "GET",
+            });
+
+            response = await response.json();            
+            console.log(response);
+                                                      
+            printCountry.innerHTML += getNegara.value.toUpperCase()
+            printHasil.innerHTML += `
+            <div id="block">
+                <div id="konfirmasi" class="boxes">
+                    <p>${response.confirmed.value}</p>
+                    <p>Confirmed</p>
+                </div>
+                <div id="sembuh" class="boxes">
+                    <p>${response.recovered.value}</p>
+                    <p>Recovered</p>
+                </div>
+                <div id="meninggal" class="boxes">    
+                    <p>${response.deaths.value}</p>
+                    <p>Deaths</p>
+                </div>
+            </div>
+            <br>
+            `
+              
+                       
+                       
+        }
+        
+        
+
+    </script>
+</body>
+</html>

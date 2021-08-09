@@ -1,0 +1,118 @@
+body {
+    background-color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#ina {
+    display: flex;
+    justify-content: space-around;
+}
+
+#boxHasil {
+    border-style: solid;
+    border-width: thin;
+    height: 100px;
+    width: 150px;
+    text-align: center;
+}
+
+#result {
+    font-size: large;
+}
+
+#hasil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#box-hasil {
+    border-style: solid;
+    border-width: thin;
+    margin: 10px;
+    padding: 5px;
+    width: 25%;
+    text-align: center;
+    border-color: #E0E4E7;
+}
+
+#country {
+    display: flex;
+    justify-content: center;
+}
+
+.boxes {
+    margin: 5px;
+    width: 30%;
+    text-align: center;
+}
+
+#confirmed {
+    color: #C93229;
+    font-weight: bold;
+}
+
+#recovered {
+    color: #6BA244;
+    font-weight: bold;
+}
+
+#deaths {
+    color: #0F0D0D;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 700px) {
+    #box-hasil {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #box-hasil {
+        width: 50%;
+    }
+
+    #confirmed {
+        color: #C93229;
+        font-weight: bold;
+        font-size: 3vw;
+    }
+    
+    #recovered {
+        color: #6BA244;
+        font-weight: bold;
+        font-size: 3vw;
+    }
+    
+    #deaths {
+        color: #0F0D0D;
+        font-weight: bold;
+        font-size: 3vw;
+    }
+
+    #text-hasil {
+        font-size: 2.5vw;
+    }
+}
+
+.boxx {
+    border-style: none;
+    border-width: thin;
+    margin: 10px;
+}
+
+#konfirmasi {
+    background-color: #C93229;
+    color: white;
+}
+
+#sembuh {
+    background-color: #0d869e;
+    color: white;
+}
+
+#meninggal {
+    background-color: #0F0D0D;
+    color: white;
+}
